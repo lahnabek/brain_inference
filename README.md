@@ -1,6 +1,6 @@
 # Parameter Inference via TVB Simulations and SBI
 
-This project enables the simulation of brain activity from human connectomes using **The Virtual Brain (TVB)**, with models such as **Zerlaut** and specific tools like **NuuTools**. It also performs parameter inference through Simulation-Based Inference (SBI).
+This project enables the simulation of brain activity from human connectomes using **The Virtual Brain (TVB)** and performs parameter inference through **Simulation-Based Inference (SBI)**.
 
 ---
 
@@ -39,42 +39,6 @@ Below is an overview of the main folders and files:
 
 ---
 
-## How to Run
-
-### 1. Clone the repository
-
-"""
-git clone <repository-url>
-cd <repository-name>
-"""
-
-### 2. Create and activate a Python virtual environment
-
-"""
-python -m venv venv
-source venv/bin/activate       # Linux/macOS
-venv\Scripts\activate.bat      # Windows
-"""
-
-### 3. Install dependencies
-
-"""
-pip install -r requirements.txt
-"""
-
-### 4. Create the project folder structure (if needed)
-
-"""
-python scripts/setup_structure.py
-"""
-
-### 5. Prepare the data
-
-- Place the original dataset in `original_dataset/`.
-- Use scripts in `generated_data/` to convert connectomes to a TVB-compatible format.
-- Check that the necessary files exist in `data_tvb/connectome_TVB/` and `data_tvb/kernel/`.
-
----
 
 ## Main Script and Key Parameters
 
