@@ -1,0 +1,55 @@
+pipeline {
+    agent {
+        label 'docker_build'
+    }
+
+    environment {
+        FULL_DOCKER_IMAGE_NAME = 'docker-repository.codemart.ro/tvb-gdist'
+        LATEST_TAG = 'latest'
+    }
+
+    stages {
+        stage ('Build docker image') {
+            steps {
+                script {
+                    def dockerImage = docker.build("${FULL_DOCKER_IMAGE_NAME}", "-f packaging/Dockerfile packaging")
+                    dockerImage.push('${LATEST_TAG}')
+                }
+            }
+        }
+        stage ('Build for Pypi') {
+            steps {
+                withDockerContainer(image: '${FULL_DOCKER_IMAGE_NAME}:${LATEST_TAG}') {
+                    sh '''#!/bin/bash
+                        cd packaging
+                        bash package_for_pip.sh
+                    '''
+                }
+                archiveArtifacts artifacts: 'dist/*'
+            }
+        }
+        stage ('Run unit-tests') {
+            steps {
+                withDockerContainer(image: '${FULL_DOCKER_IMAGE_NAME}:${LATEST_TAG}') {
+                    sh '''#!/bin/bash
+                        pip install .
+                        python setup.py build_ext --inplace
+                        pytest --junitxml=results.xml
+                        exit 0
+                    '''
+                 }
+                 junit 'results.xml'
+            }
+        }
+    }
+    post {
+        changed {
+            mail to: 'lia.domide@codemart.ro',
+            subject: "Jenkins Pipeline ${currentBuild.fullDisplayName} changed status",
+            body: """
+                Result: ${currentBuild.result}
+                Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'
+                Check console output at ${env.BUILD_URL}"""
+        }
+    }
+}

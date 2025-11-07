@@ -1,0 +1,73 @@
+pipeline {
+    agent { label 'WindowsDocker' }
+
+    environment {
+        FULL_DOCKER_IMAGE_NAME = 'docker-repository.codemart.ro/tvb-gdist-win:latest'
+    }
+
+    stages {
+        stage ('Build docker image') {
+            steps {
+                script {
+                    def dockerImage = docker.build("${FULL_DOCKER_IMAGE_NAME}", "-f packaging/Dockerfile-windows packaging")
+                    dockerImage.push()
+                }
+            }
+        }
+        stage ('Build tar gz archive') {
+            steps {
+                withDockerContainer(image: "${FULL_DOCKER_IMAGE_NAME}"){
+                    powershell 'cmd /c if exist dist rd /s /q dist'
+                    powershell 'cmd /c if exist dist rd /s /q dist'
+                    powershell 'cmd /c python setup.py sdist'
+                }
+            }
+        }
+        stage ('Build wheel using Python 3.6') {
+            steps {
+                withDockerContainer(image: "${FULL_DOCKER_IMAGE_NAME}"){
+                    powershell 'cmd /c C:\\envs\\p36\\Scripts\\python.exe setup.py bdist_wheel'
+                }
+            }
+        }
+        stage ('Build wheel using Python 3.7') {
+            steps {
+                withDockerContainer(image: "${FULL_DOCKER_IMAGE_NAME}"){
+                    powershell 'cmd /c python setup.py bdist_wheel'
+                }
+            }
+        }
+        stage ('Build wheel using Python 3.8') {
+            steps {
+                withDockerContainer(image: "${FULL_DOCKER_IMAGE_NAME}"){
+                    powershell 'cmd /c C:\\envs\\p38\\Scripts\\python.exe setup.py bdist_wheel'
+                }
+            }
+        }
+        stage ('Archive artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'dist/*'
+            }
+        }
+        stage ('Run unit-tests') {
+            steps {
+                withDockerContainer(image: "${FULL_DOCKER_IMAGE_NAME}") {
+                    powershell 'cmd /c pip install .'
+                    powershell 'cmd /c python setup.py build_ext --inplace'
+                    powershell 'cmd /c pytest --junitxml=results.xml'
+                }
+                junit 'results.xml'
+            }
+        }
+    }
+    post {
+        changed {
+            mail to: 'lia.domide@codemart.ro bogdan.valean@codemart.ro',
+            subject: "Jenkins Pipeline ${currentBuild.fullDisplayName} changed status",
+            body: """
+                Result: ${currentBuild.result}
+                Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'
+                Check console output at ${env.BUILD_URL}"""
+        }
+    }
+}
