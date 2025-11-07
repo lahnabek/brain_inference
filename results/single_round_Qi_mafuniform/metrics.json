@@ -1,0 +1,90 @@
+{
+    "posterior_mean": [
+        5.006577014923096
+    ],
+    "posterior_std": [
+        0.009969337843358517
+    ],
+    "credible_interval_90": {
+        "lower": [
+            4.992801833152771
+        ],
+        "upper": [
+            5.023552441596985
+        ]
+    },
+    "pearson_stats": {
+        "mean_pearson_distance": 2.2181631247852883e-06,
+        "std_pearson_distance": 3.104044204472383e-06,
+        "min_pearson_distance": 3.939859549717539e-11,
+        "max_pearson_distance": 1.5573180417005617e-05
+    },
+    "posterior_distribution_stats": {
+        "skewness": [
+            -0.30224178959240994
+        ],
+        "kurtosis": [
+            1.0871466497510243
+        ],
+        "entropy": [
+            3.3098088197221895
+        ],
+        "sample_diversity": 0.011040209792554379
+    },
+    "best_sample_index": 31,
+    "num_samples": 100,
+    "num_simulations": 1000,
+    "real_obs": false,
+    "timestamp": "2025-06-17T12:32:40.034325",
+    "posterior_quick_stats": {
+        "shape": [
+            100,
+            1
+        ],
+        "global_mean": 5.006577014923096,
+        "global_std": 0.009969337843358517,
+        "min_abs": 4.968760013580322,
+        "max_abs": 5.029327392578125,
+        "std_min": 0.009969337843358517,
+        "std_max": 0.009969337843358517
+    },
+    "prediction_quick_stats": {
+        "shape": [
+            100,
+            2278
+        ],
+        "global_mean": -0.0009438298875465989,
+        "global_std": 0.00025364942848682404,
+        "min_abs": -0.5810075998306274,
+        "max_abs": 0.6646539568901062,
+        "std_min": 2.6983448719875014e-07,
+        "std_max": 0.001274771406315267
+    },
+    "borne_min": [
+        4.0
+    ],
+    "borne_max": [
+        6.0
+    ],
+    "true_theta": [
+        5.0
+    ],
+    "mse": [
+        0.00014264174387790263
+    ],
+    "mae": [
+        0.009304222650825977
+    ],
+    "credible_interval_90_inside": [
+        true
+    ],
+    "posterior_diagnostics": {
+        "param_0": {
+            "mean": 5.006577014923096,
+            "std": 0.009969337843358517,
+            "skewness": -0.30224178959240994,
+            "kurtosis": 1.0871466497510243,
+            "entropy_kde": 4.605167831870886
+        }
+    }
+}

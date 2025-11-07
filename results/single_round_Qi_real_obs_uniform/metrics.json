@@ -1,0 +1,78 @@
+{
+    "posterior_mean": [
+        4.317941665649414
+    ],
+    "posterior_std": [
+        0.07661742717027664
+    ],
+    "credible_interval_90": {
+        "lower": [
+            4.2120746850967405
+        ],
+        "upper": [
+            4.448403406143188
+        ]
+    },
+    "pearson_stats": {
+        "mean_pearson_distance": 0.9764268327501145,
+        "std_pearson_distance": 0.0024405938697618823,
+        "min_pearson_distance": 0.9646386434529498,
+        "max_pearson_distance": 0.980127593856205
+    },
+    "posterior_distribution_stats": {
+        "skewness": [
+            -0.3021496763514911
+        ],
+        "kurtosis": [
+            1.0871098512704158
+        ],
+        "entropy": [
+            3.3097898279469966
+        ],
+        "sample_diversity": 0.08484742790460587
+    },
+    "best_sample_index": 15,
+    "num_samples": 100,
+    "num_simulations": 1000,
+    "real_obs": true,
+    "timestamp": "2025-06-17T12:04:02.051205",
+    "posterior_quick_stats": {
+        "shape": [
+            100,
+            1
+        ],
+        "global_mean": 4.317941665649414,
+        "global_std": 0.07661742717027664,
+        "min_abs": 4.027308464050293,
+        "max_abs": 4.4927873611450195,
+        "std_min": 0.07661742717027664,
+        "std_max": 0.07661742717027664
+    },
+    "prediction_quick_stats": {
+        "shape": [
+            100,
+            2278
+        ],
+        "global_mean": -0.0013416355941444635,
+        "global_std": 0.011133091524243355,
+        "min_abs": -0.5266813635826111,
+        "max_abs": 0.6047611236572266,
+        "std_min": 1.764676380844321e-05,
+        "std_max": 0.09646078199148178
+    },
+    "borne_min": [
+        4.0
+    ],
+    "borne_max": [
+        6.0
+    ],
+    "posterior_diagnostics": {
+        "param_0": {
+            "mean": 4.317941665649414,
+            "std": 0.07661742717027664,
+            "skewness": -0.3021496763514911,
+            "kurtosis": 1.0871098512704158,
+            "entropy_kde": 4.600602333807193
+        }
+    }
+}

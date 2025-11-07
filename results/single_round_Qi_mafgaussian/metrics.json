@@ -1,0 +1,90 @@
+{
+    "posterior_mean": [
+        5.000105857849121
+    ],
+    "posterior_std": [
+        0.00348465284332633
+    ],
+    "credible_interval_90": {
+        "lower": [
+            4.9944270849227905
+        ],
+        "upper": [
+            5.00573697090149
+        ]
+    },
+    "pearson_stats": {
+        "mean_pearson_distance": 1.9039785682850586e-07,
+        "std_pearson_distance": 2.5622026031184544e-07,
+        "min_pearson_distance": 4.936051567483446e-13,
+        "max_pearson_distance": 1.2373233452267485e-06
+    },
+    "posterior_distribution_stats": {
+        "skewness": [
+            0.08499176117694211
+        ],
+        "kurtosis": [
+            -0.19900478010861544
+        ],
+        "entropy": [
+            3.471753739016398
+        ],
+        "sample_diversity": 0.003929010592401028
+    },
+    "best_sample_index": 92,
+    "num_samples": 100,
+    "num_simulations": 1000,
+    "real_obs": false,
+    "timestamp": "2025-06-17T20:33:00.527091",
+    "posterior_quick_stats": {
+        "shape": [
+            100,
+            1
+        ],
+        "global_mean": 5.000105857849121,
+        "global_std": 0.00348465284332633,
+        "min_abs": 4.9919915199279785,
+        "max_abs": 5.008908271789551,
+        "std_min": 0.00348465284332633,
+        "std_max": 0.00348465284332633
+    },
+    "prediction_quick_stats": {
+        "shape": [
+            100,
+            2278
+        ],
+        "global_mean": -0.0009383259457536042,
+        "global_std": 8.889432501746342e-05,
+        "min_abs": -0.58048415184021,
+        "max_abs": 0.6641479730606079,
+        "std_min": 9.963741121055136e-08,
+        "std_max": 0.0004467003745958209
+    },
+    "borne_min": [
+        4.0
+    ],
+    "borne_max": [
+        6.0
+    ],
+    "true_theta": [
+        5.0
+    ],
+    "mse": [
+        1.2153991519880947e-05
+    ],
+    "mae": [
+        0.002759113209322095
+    ],
+    "credible_interval_90_inside": [
+        true
+    ],
+    "posterior_diagnostics": {
+        "param_0": {
+            "mean": 5.000105857849121,
+            "std": 0.00348465284332633,
+            "skewness": 0.08499176117694211,
+            "kurtosis": -0.19900478010861544,
+            "entropy_kde": 4.6051701652597545
+        }
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "posterior_mean": [
+        4.623126983642578
+    ],
+    "posterior_std": [
+        0.09094661474227905
+    ],
+    "credible_interval_90": {
+        "lower": [
+            4.509193229675293
+        ],
+        "upper": [
+            4.777225208282471
+        ]
+    },
+    "pearson_stats": {
+        "mean_pearson_distance": 0.9787556734841965,
+        "std_pearson_distance": 0.007399652177590415,
+        "min_pearson_distance": 0.9646391926815555,
+        "max_pearson_distance": 0.9877549446365155
+    },
+    "posterior_distribution_stats": {
+        "skewness": [
+            0.846366170918836
+        ],
+        "kurtosis": [
+            0.3222583995093431
+        ],
+        "entropy": [
+            3.377716182007954
+        ],
+        "sample_diversity": 0.10068444907665253
+    },
+    "best_sample_index": 23,
+    "num_samples": 100,
+    "num_simulations": 1000,
+    "real_obs": true,
+    "timestamp": "2025-06-25T18:34:59.833457",
+    "posterior_quick_stats": {
+        "shape": [
+            100,
+            1
+        ],
+        "global_mean": 4.623126983642578,
+        "global_std": 0.09094661474227905,
+        "min_abs": 4.501640796661377,
+        "max_abs": 4.9101104736328125,
+        "std_min": 0.09094661474227905,
+        "std_max": 0.09094661474227905
+    },
+    "prediction_quick_stats": {
+        "shape": [
+            100,
+            2278
+        ],
+        "global_mean": -0.0026055467315018177,
+        "global_std": 0.03933222219347954,
+        "min_abs": -0.5814177393913269,
+        "max_abs": 0.726054847240448,
+        "std_min": 0.0004601630789693445,
+        "std_max": 0.21003036201000214
+    },
+    "borne_min": [
+        4.5
+    ],
+    "borne_max": [
+        5.5
+    ],
+    "posterior_diagnostics": {
+        "param_0": {
+            "mean": 4.623126983642578,
+            "std": 0.09094661474227905,
+            "skewness": 0.846366170918836,
+            "kurtosis": 0.3222583995093431,
+            "entropy_kde": 4.59838801896655
+        }
+    }
+}
